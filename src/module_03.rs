@@ -69,27 +69,113 @@ pub mod rust_syntax_and_data_types {
         println!("i32 array: {:?}", my_int32_array);
     }
 
+    #[derive(Debug)]
+    struct Coffee {
+        id: i64,
+        name: String,
+        coffee_type: CoffeeType,
+    }
+
+    // #[derive(Debug)]
+    // enum CoffeeType {
+    //     HOT(f32),
+    //     ICED(f32),
+    // }
+    #[derive(Debug)]
+    enum CoffeeType {
+        HOT(Option<f64>),
+        ICED(Option<f64>),
+    }
+
     pub fn creating_custom_types() {
-        #[derive(Debug)]
-        struct Coffee {
-            id: i64,
-            name: String,
-            coffee_type: CoffeeType,
-        }
-
-        #[derive(Debug)]
-        enum CoffeeType {
-            HOT(f32),
-            ICED(f32),
-        }
-
         let coffee = Coffee {
             id: 123456,
             name: String::from("Latte"),
-            coffee_type: CoffeeType::HOT(102.5),
+            coffee_type: CoffeeType::HOT(Some(102.5)),
         };
 
         println!("Coffee ID: {}, Coffee Name: {}, Coffee Type: {:?}",
                  coffee.id, coffee.name, coffee.coffee_type);
+    }
+
+    pub fn demo_using_data_types() {
+        // integers
+        let my_num: i32 = 32;
+        println!("Integer: {}", my_num);
+
+        // converting strings to integers
+        let parsed_num: i32 = "123".parse().unwrap();
+        println!("Parsed num: {}", parsed_num);
+        println!("Integer to string: {}", parsed_num.to_string());
+
+        // floats
+        let my_float: f32 = 10.5;
+        println!("Floor: {}", my_float.floor());
+        println!("Ceiling: {}", my_float.ceil());
+        println!("Rounded: {}", my_float.round());
+
+        let my_int = my_float as i32 + 1;
+        let my_new_float = 1 as f32 + my_float;     // equivalent to `1f32 + my_float`
+        println!("Coercing float to int: {}", my_int);
+        println!("Coercing int to float: {}", my_new_float);
+
+        // characters
+        let my_char = 'A';
+        println!("Is uppercase: {}", my_char.is_uppercase());
+        println!("Is lowercase: {}", my_char.is_lowercase());
+        println!("Lowercase: {}", my_char.to_ascii_lowercase());
+        println!("String version: {}", my_char.to_string());
+
+        // booleans
+        let my_bool = true;
+        assert_eq!(my_bool, true);
+
+        // tuples
+        let my_tuple = ('A', 5, 10.5);
+        println!("Char/Integer/Float: {}/{}/{}", my_tuple.0, my_tuple.1, my_tuple.2);
+
+        // destructuring tuple values into variables
+        let (letter, integer, float_num) = my_tuple;
+        println!("Char/Integer/Float: {}/{}/{}", letter, integer, float_num);
+
+        let nested_tuple = ((1, 2), (3, 4));
+        let ((a, b), (c, d)) = nested_tuple;
+        println!("(({}, {}), ({}, {}))", a, b, c, d);
+
+        // arrays
+        let my_arr = [1, 2, 3, 4, 5];
+        for num in my_arr {
+            println!("Number: {}", num);
+        }
+
+        let same_vale_arr: [i32; 1000] = [10; 1000];
+        println!("Array: {:?}", same_vale_arr);
+        println!("First Element: {}", same_vale_arr[0]);
+        println!("Array Length: {}", same_vale_arr.len());
+        println!("Array Size: {}", std::mem::size_of_val(&same_vale_arr));
+
+        // structs
+        let mut my_coffee = Coffee {
+            id: 10,
+            name: String::from("Riley"),
+            coffee_type: CoffeeType::HOT(None),
+        };
+
+        my_coffee.id = 1000;
+
+        let id: i64 = 10;
+        let coffee_with_temp = Coffee {
+            id,
+            name: String::from("Riley"),
+            coffee_type: CoffeeType::HOT(Some(103.2)),
+        };
+
+        // combined structs
+        let combined = Coffee {
+            id: 2000,
+            ..coffee_with_temp
+        };
+
+        println!("Combined: {:?}", combined);
     }
 }
