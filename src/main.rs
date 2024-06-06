@@ -13,5 +13,6 @@ fn main() {
 
     // Module 03 - Rust Syntax and Data Types
     // rust_syntax_and_data_types::demo_rust_syntax();
-    rust_syntax_and_data_types::primitive_data_types_in_rust();
+    // rust_syntax_and_data_types::primitive_data_types_in_rust();
+    rust_syntax_and_data_types::creating_custom_types();
 }

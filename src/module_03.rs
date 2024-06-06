@@ -68,4 +68,28 @@ pub mod rust_syntax_and_data_types {
         let my_int32_array: [i32; 3] = [1, 2, 3];
         println!("i32 array: {:?}", my_int32_array);
     }
+
+    pub fn creating_custom_types() {
+        #[derive(Debug)]
+        struct Coffee {
+            id: i64,
+            name: String,
+            coffee_type: CoffeeType,
+        }
+
+        #[derive(Debug)]
+        enum CoffeeType {
+            HOT(f32),
+            ICED(f32),
+        }
+
+        let coffee = Coffee {
+            id: 123456,
+            name: String::from("Latte"),
+            coffee_type: CoffeeType::HOT(102.5),
+        };
+
+        println!("Coffee ID: {}, Coffee Name: {}, Coffee Type: {:?}",
+                 coffee.id, coffee.name, coffee.coffee_type);
+    }
 }
