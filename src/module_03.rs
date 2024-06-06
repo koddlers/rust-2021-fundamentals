@@ -6,7 +6,7 @@ pub mod rust_syntax_and_data_types {
         let mut number_str = String::new();
         println!("Enter your number:");
 
-        stdin().read_line(&mut number_str).unwrap();02
+        stdin().read_line(&mut number_str).unwrap();
 
         // Parse our string as number after trimming off the extra characters
         let number: i32 = number_str.trim().parse().unwrap();
