@@ -3,10 +3,12 @@
 mod module_02;
 mod module_03;
 mod module_04;
+mod module_05;
 
 use module_02::getting_started_with_rust;
 use module_03::rust_syntax_and_data_types;
 use module_04::ownership_and_borrowing;
+use module_05::control_flow;
 
 fn main() {
     // Module 02 - Getting Started with Rust
@@ -22,5 +24,11 @@ fn main() {
     // Module 04 - Ownership and Borrowing
     // ownership_and_borrowing::demo_moves_copies_and_clones();
     // ownership_and_borrowing::references_and_slices();
-    ownership_and_borrowing::demo_references_and_slices();
+    // ownership_and_borrowing::demo_references_and_slices();
+
+    // Module 05 - Control Flow
+    // control_flow::control_flow();
+    // control_flow::basic_loops();
+    // control_flow::while_loops();
+    control_flow::for_loops();
 }
