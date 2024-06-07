@@ -38,5 +38,6 @@ fn main() {
     // control_flow::using_logical_operators();
 
     // Module 06 - Writing Functions
-    writing_functions::anatomy_of_a_function()
+    // writing_functions::anatomy_of_a_function();
+    writing_functions::using_functions();
 }
