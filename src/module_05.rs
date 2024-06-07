@@ -141,4 +141,52 @@ pub mod control_flow {
         }
         println!("Mutated Array: {:?}", my_other_arr);
     }
+
+    enum MessageState {
+        Pending,
+        Sending,
+        Received,
+    }
+
+    #[derive(Debug)]
+    enum MessageStateEnum {
+        Pending = 1,
+        Sending = 2,
+        Received = 3,
+    }
+
+    pub fn pattern_matching() {
+        let msg_state = MessageState::Pending;
+
+        match msg_state {
+            MessageState::Pending => println!("Message Pending"),
+            MessageState::Sending => println!("Message Sending"),
+            MessageState::Received => println!("Message Received")
+        }
+
+        let status_code = match msg_state {
+            MessageState::Pending => 1,
+            MessageState::Sending => 2,
+            MessageState::Received => 3
+        };
+        println!("status_code: {}", status_code);
+
+        let msg_state_enum = MessageStateEnum::Pending;
+
+        match msg_state_enum {
+            MessageStateEnum::Pending => {
+                println!("Msg status: {:?}", MessageStateEnum::Pending)
+            }
+            _ => {
+                println!("Message is no longer pending")
+            }
+        }
+
+        // can use optional else block afterward
+        if let MessageStateEnum::Received = msg_state_enum {
+            println!("Msg status: {:?}", MessageStateEnum::Received)
+        } else {
+            println!("Message is received")
+        }
+    }
 }
