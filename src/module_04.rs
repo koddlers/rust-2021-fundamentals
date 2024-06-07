@@ -85,4 +85,52 @@ pub mod ownership_and_borrowing {
         // println!("my_mut_arr: {:?}", my_mut_arr);
         println!("my_mut_slice: {:?}", my_mut_slice);
     }
+
+    fn increase(mut input: i32) {
+        input += 20;
+        println!("input parameter after increase: {}", input);
+    }
+
+    fn increase_by_reference(input: &mut i32) {
+        *input += 20;
+    }
+
+    fn alter_coffee(coffee: &mut Coffee, increase: i32) {
+        coffee.count += increase;
+    }
+
+    fn print_coffee(coffee: &Coffee) {
+        println!("My Coffee with ID {} and Count {}", coffee.id, coffee.count);
+    }
+
+    pub fn demo_references_and_slices() {
+        let mut a = 1;
+        println!("a before call to increase(): {}", a);
+        increase(a);
+        println!("a after call to increase(): {}", a);
+
+        increase_by_reference(&mut a);
+        println!("a after increase: {}", a);
+
+        let mut my_coffee = Coffee { id: 10, count: 50 };
+        alter_coffee(&mut my_coffee, 50);
+        print_coffee(&my_coffee);
+
+        // slices - array slices, string slices
+        let str_slice = "Hello World";
+
+        let my_str = String::from(str_slice);
+        let slice_from_str = &my_str[0..5];
+        println!("My string slice: {:?}", slice_from_str);
+
+        let my_arr = [1, 2, 3, 4, 5];
+        let arr_slice = &my_arr[1..3];
+        println!("My array slice: {:?}", arr_slice);
+
+        let mut my_mut_arr = [1, 2, 3, 4, 5];
+        let mut mut_arr_slice = &mut my_mut_arr[0..3];
+        mut_arr_slice[0] = 100_000;
+        println!("My mutable array slice: {:?}", mut_arr_slice);
+        println!("My mutable array: {:?}", my_mut_arr);
+    }
 }

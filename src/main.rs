@@ -21,5 +21,6 @@ fn main() {
 
     // Module 04 - Ownership and Borrowing
     // ownership_and_borrowing::demo_moves_copies_and_clones();
-    ownership_and_borrowing::references_and_slices();
+    // ownership_and_borrowing::references_and_slices();
+    ownership_and_borrowing::demo_references_and_slices();
 }
