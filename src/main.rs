@@ -4,11 +4,13 @@ mod module_02;
 mod module_03;
 mod module_04;
 mod module_05;
+mod module_06;
 
 use module_02::getting_started_with_rust;
 use module_03::rust_syntax_and_data_types;
 use module_04::ownership_and_borrowing;
 use module_05::control_flow;
+use module_06::writing_functions;
 
 fn main() {
     // Module 02 - Getting Started with Rust
@@ -33,5 +35,8 @@ fn main() {
     // control_flow::for_loops();
     // control_flow::demo_using_control_flow();
     // control_flow::pattern_matching();
-    control_flow::using_logical_operators();
+    // control_flow::using_logical_operators();
+
+    // Module 06 - Writing Functions
+    writing_functions::anatomy_of_a_function()
 }
