@@ -30,5 +30,6 @@ fn main() {
     // control_flow::control_flow();
     // control_flow::basic_loops();
     // control_flow::while_loops();
-    control_flow::for_loops();
+    // control_flow::for_loops();
+    control_flow::demo_using_control_flow();
 }
