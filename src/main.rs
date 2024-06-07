@@ -20,5 +20,6 @@ fn main() {
     // rust_syntax_and_data_types::demo_using_data_types();
 
     // Module 04 - Ownership and Borrowing
-    ownership_and_borrowing::demo_moves_copies_and_clones();
+    // ownership_and_borrowing::demo_moves_copies_and_clones();
+    ownership_and_borrowing::references_and_slices();
 }

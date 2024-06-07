@@ -49,4 +49,40 @@ pub mod ownership_and_borrowing {
         println!("coffee_c: {:?}", coffee_c);
         println!("coffee_d: {:?}", coffee_d);
     }
+
+    fn concat(a: &mut String) {
+        a.push_str("bar")
+    }
+
+    pub fn references_and_slices() {
+        let foo = String::from("foo");
+        // the following call to `concat()` sends `foo` as an "Immutable Reference"
+        // and WE CANNOT DO THAT
+        // concat(&foo);
+
+        let mut other_foo = String::from("foo");
+        // the following call to `concat()` sends `other_foo` as a "Mutable Reference"
+        // and this is completely fine
+        println!("other_foo (before):\t {}", other_foo);
+        concat(&mut other_foo);
+        println!("other_foo (after):\t {}", other_foo);
+
+        // slices - strings and arrays
+        let foobar = String::from("foobar");
+        let foo = &foobar[0..4];
+        let bar = &foobar[3..];
+        println!("foo: {}", foo);
+        println!("bar: {}", bar);
+
+        let my_arr = [1, 2, 3, 4];
+        let one = &my_arr[..1];
+        println!("one: {:?}", one);
+
+        let mut my_mut_arr = [1, 2, 3];
+        let my_mut_slice = &mut my_mut_arr[..1];
+        my_mut_slice[0] = 50;
+        // this following `println!()` will throw an error because we borrowed from `my_mut_arr` already
+        // println!("my_mut_arr: {:?}", my_mut_arr);
+        println!("my_mut_slice: {:?}", my_mut_slice);
+    }
 }
