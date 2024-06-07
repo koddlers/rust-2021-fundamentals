@@ -32,5 +32,6 @@ fn main() {
     // control_flow::while_loops();
     // control_flow::for_loops();
     // control_flow::demo_using_control_flow();
-    control_flow::pattern_matching();
+    // control_flow::pattern_matching();
+    control_flow::using_logical_operators();
 }

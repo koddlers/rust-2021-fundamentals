@@ -189,4 +189,42 @@ pub mod control_flow {
             println!("Message is received")
         }
     }
+
+    pub fn using_logical_operators() {
+        let this_is_true = true;
+        let this_is_false = false;
+
+        if !this_is_false {
+            println!("This code will run; because the inverse of false becomes true");
+        }
+
+        if this_is_true || this_is_false {
+            println!("This code will also run; because if either is true, OR returns true");
+        }
+
+        if this_is_true && this_is_false {
+            println!("This code WILL NOT RUN; because one of the operands is false, their boolean AND returns false");
+        }
+    }
+
+    pub fn using_comparison_operators() {
+        let my_num = 5;
+        if my_num != 3 {
+            println!("This code will run - `my_num` does not equal to 3");
+        }
+
+        if my_num == 5 {
+            println!("This code will run - `my_num` equals to 3");
+        }
+
+        if my_num > 6 {
+            println!("This block will NOT run");
+        } else if my_num >= 6 {
+            println!("This block will NOT run");
+        } else if my_num < 5 {
+            println!("This block will NOT run");
+        } else if my_num <= 5 {
+            println!("This block WILL RUN, because `my_num` equals to 5");
+        }
+    }
 }
