@@ -104,4 +104,69 @@ pub mod writing_functions {
         println!("Coffee object created by Associated Function");
         println!("Coffee name: {} and Temperature: {}", coffee.name, coffee.temp);
     }
+
+    struct Kofi {
+        id: i32,
+        count: i32,
+    }
+
+    impl Kofi {
+        // Associated Function
+        fn new(id: i32, count: i32) -> Self {
+            Self {
+                id,
+                count,
+            }
+        }
+
+        // Method - `increase_count()`
+        fn increase_count(&mut self, amount: i32) {
+            self.count += amount;
+        }
+
+        // Method - `print()`
+        // using `&self` instead of `self`, because `self` takes the ownership of the object
+        // but `&self` just borrows it.
+        fn print(&self) {
+            println!("Kofi ID: {}, Count: {}", self.id, self.count)
+        }
+    }
+
+    pub fn demo_using_functions() {
+        // 1. Named Functions
+        fn add(a: f32, b: f32) -> f32 {
+            a + b
+        }
+        println!("add({}, {}) -> {}", 3.5, 8.6, add(3.5, 8.6));
+
+        // 2. Closures and Higher Order Functions
+        let add_ten = |x: i32| {
+            x + 10
+        };
+
+        // Higher Order Functions - can take other functions as parameter and
+        // return a function as its return value
+        // here, `even_numbers` takes `add_ten` as a parameter to `map()`
+        let even_numbers: Vec<i32> = (1..10).map(add_ten)
+            .filter(|x| x % 2 == 0)
+            .collect();
+
+        println!("Even numbers: {:?}", even_numbers);
+
+        // example: variable capturing from enclosing scope in closures
+        let outer_var = 1;
+        let my_closure = |x| x * 10 + outer_var;
+        println!("my_closure({}): {}", 5, my_closure(5));
+        println!("my_closure({}): {}", 10, my_closure(10));
+
+        // If you uncomment this code and make the `outer_var` variable mutable
+        // it will not compile. Because, its value is now owned by the closure `my_closure`
+        // outer_var += 1;
+
+        // Methods and Associated Functions
+        let mut my_kofi = Kofi::new(1, 1000);     // `new` is an Associated Function
+        my_kofi.print();    // `print()` is a method
+        my_kofi.increase_count(1000);
+        my_kofi.print();
+    }
 }

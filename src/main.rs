@@ -39,5 +39,6 @@ fn main() {
 
     // Module 06 - Writing Functions
     // writing_functions::anatomy_of_a_function();
-    writing_functions::using_functions();
+    // writing_functions::using_functions();
+    writing_functions::demo_using_functions();
 }
