@@ -5,12 +5,14 @@ mod module_03;
 mod module_04;
 mod module_05;
 mod module_06;
+mod module_07;
 
 use module_02::getting_started_with_rust;
 use module_03::rust_syntax_and_data_types;
 use module_04::ownership_and_borrowing;
 use module_05::control_flow;
 use module_06::writing_functions;
+use module_07::handling_errors_and_debugging;
 
 fn main() {
     // Module 02 - Getting Started with Rust
@@ -40,5 +42,9 @@ fn main() {
     // Module 06 - Writing Functions
     // writing_functions::anatomy_of_a_function();
     // writing_functions::using_functions();
-    writing_functions::demo_using_functions();
+    // writing_functions::demo_using_functions();
+
+    // Module 07 - Handling Errors and Debugging
+    // handling_errors_and_debugging::handling_errors();
+    handling_errors_and_debugging::demo_error_handling_in_rust();
 }
