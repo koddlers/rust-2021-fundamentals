@@ -7,6 +7,7 @@ mod module_05;
 mod module_06;
 mod module_07;
 mod module_08;
+mod module_09;
 
 use module_02::getting_started_with_rust;
 use module_03::rust_syntax_and_data_types;
@@ -15,6 +16,7 @@ use module_05::control_flow;
 use module_06::writing_functions;
 use module_07::handling_errors_and_debugging;
 use module_08::understanding_basic_collections;
+use module_09::using_traits_and_generics;
 
 fn main() {
     // Module 02 - Getting Started with Rust
@@ -53,5 +55,8 @@ fn main() {
     // Module 08 - Understanding Basic Collections
     // understanding_basic_collections::demo_using_collections();
     // understanding_basic_collections::iterators();
-    understanding_basic_collections::demo_using_iterators();
+    // understanding_basic_collections::demo_using_iterators();
+
+    // Module 09 - Using Traits and Generics
+    using_traits_and_generics::introduction_to_traits();
 }
