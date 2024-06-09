@@ -52,5 +52,6 @@ fn main() {
 
     // Module 08 - Understanding Basic Collections
     // understanding_basic_collections::demo_using_collections();
-    understanding_basic_collections::iterators();
+    // understanding_basic_collections::iterators();
+    understanding_basic_collections::demo_using_iterators();
 }

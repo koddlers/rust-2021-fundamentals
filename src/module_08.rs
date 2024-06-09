@@ -75,4 +75,53 @@ pub mod understanding_basic_collections {
         }
         println!();
     }
+
+    #[derive(Debug, Clone)]
+    struct Coffee {
+        id: i64,
+        count: i64,
+    }
+
+    pub fn demo_using_iterators() {
+        let coffees = Vec::from([
+            Coffee { id: 1000, count: 10 },
+            Coffee { id: 2000, count: 20 },
+            Coffee { id: 3000, count: 30 },
+        ]);
+
+        let coffee_iter = coffees.iter();
+        println!("Vector iterator: {:?}", coffee_iter);
+
+        // Iterator adapters - some consume and some don't
+        let total: i64 = coffee_iter.map(|coffee| coffee.count).sum();
+        println!("Total count: {}", total);
+
+        let coffee_map = HashMap::from([
+            ("Coffee 1", Coffee { id: 1000, count: 10 }),
+            ("Coffee 2", Coffee { id: 2000, count: 40 }),
+            ("Coffee 3", Coffee { id: 3000, count: 500 }),
+        ]);
+        let coffee_map_iter = coffee_map.iter();
+        println!("Coffee map iterator: {:?}", coffee_map_iter);
+
+        let filtered_coffees: Vec<Coffee> = coffee_map_iter
+            .filter(|(_key, value)| value.count >= 40)
+            .map(|(_ket, value)| value)
+            .cloned()
+            .collect();
+
+        for coffee in filtered_coffees {
+            println!("Coffee: {:?}", coffee);
+        }
+
+        // This code won't compile because 'filter' takes ownership of this iterator
+        // for (key, value) in coffee_map_iter {
+        //     println!("Original Coffee Entry: ({} | {:?})", key, value);
+        // }
+
+        // This is just fine though!
+        for (key, value) in coffee_map.iter() {
+            println!("Original Coffee Entry: ({} | {:?})", key, value);
+        }
+    }
 }
