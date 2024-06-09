@@ -6,6 +6,7 @@ mod module_04;
 mod module_05;
 mod module_06;
 mod module_07;
+mod module_08;
 
 use module_02::getting_started_with_rust;
 use module_03::rust_syntax_and_data_types;
@@ -13,6 +14,7 @@ use module_04::ownership_and_borrowing;
 use module_05::control_flow;
 use module_06::writing_functions;
 use module_07::handling_errors_and_debugging;
+use module_08::understanding_basic_collections;
 
 fn main() {
     // Module 02 - Getting Started with Rust
@@ -46,5 +48,8 @@ fn main() {
 
     // Module 07 - Handling Errors and Debugging
     // handling_errors_and_debugging::handling_errors();
-    handling_errors_and_debugging::demo_error_handling_in_rust();
+    // handling_errors_and_debugging::demo_error_handling_in_rust();
+
+    // Module 08 - Understanding Basic Collections
+    understanding_basic_collections::demo_using_collections();
 }
