@@ -51,5 +51,6 @@ fn main() {
     // handling_errors_and_debugging::demo_error_handling_in_rust();
 
     // Module 08 - Understanding Basic Collections
-    understanding_basic_collections::demo_using_collections();
+    // understanding_basic_collections::demo_using_collections();
+    understanding_basic_collections::iterators();
 }

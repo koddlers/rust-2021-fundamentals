@@ -58,4 +58,21 @@ pub mod understanding_basic_collections {
         let capacity_map: HashMap<i32, &str> = HashMap::with_capacity(10);
         println!("My coffee map with capacity: {:?}\n", capacity_map.capacity());
     }
+
+    pub fn iterators() {
+        // implicit iterators
+        let my_nums = vec![1, 2, 3];
+        for num in my_nums {
+            print!("{} ", num)
+        }
+        println!();
+
+        // behind the scenes, the code above is using iterators implicitly
+        // which will look like the following, explicitly
+        let my_nums = vec![1, 2, 3];
+        for num in my_nums.iter() {
+            print!("{} ", num)
+        }
+        println!();
+    }
 }
