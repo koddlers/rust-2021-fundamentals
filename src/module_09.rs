@@ -166,3 +166,73 @@ pub mod using_traits_and_generics_v2 {
         // }
     }
 }
+
+pub mod using_traits_and_generics_v3 {
+    #[derive(Debug)]
+    struct Coffee<'a, T, U> {
+        name: &'a str,
+        cost: T,
+        size: U,
+    }
+
+    pub fn using_generics() {
+        let my_coffee = Coffee {
+            name: "Drip",
+            cost: 4.99,
+            size: 3,
+        };
+        println!("my_coffee: {:?}", my_coffee);
+
+        let my_other_coffee = Coffee {
+            name: "Drip",
+            cost: 3.50,
+            size: "Grande",
+        };
+        println!("my_other_coffee: {:?}", my_other_coffee);
+    }
+
+    // pub trait Rate {
+    //     fn calc_rating(&self) -> i32;
+    // }
+    //
+    // // TODO: fix this function
+    // fn best_rating<'a, T: Rate>(items: Vec<T>) -> &'a T {
+    //     let mut best= &items[0];
+    //
+    //     for item in items.iter() {
+    //         if item.calc_rating() > best.calc_rating() {
+    //             best = item;
+    //         }
+    //     }
+    //
+    //     best
+    // }
+    //
+    // #[derive(Debug)]
+    // struct Item {
+    //     name: String,
+    //     rating: i32,
+    // }
+    //
+    // impl Rate for Item {
+    //     fn calc_rating(&self) -> i32 {
+    //         return self.rating / 10 * 100;
+    //     }
+    // }
+    //
+    // pub fn using_generics_v2() {
+    //     let candy = Item {
+    //         name: String::from("Candy"),
+    //         rating: 7,
+    //     };
+    //
+    //     let chocolate = Item {
+    //         name: String::from("Chocolate"),
+    //         rating: 10,
+    //     };
+    //
+    //     let items = vec![candy, chocolate];
+    //     let best_item = best_rating(items);
+    //     println!("The best Item is: {:?}", best_item);
+    // }
+}
