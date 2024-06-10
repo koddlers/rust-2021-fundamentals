@@ -17,6 +17,7 @@ use module_06::writing_functions;
 use module_07::handling_errors_and_debugging;
 use module_08::understanding_basic_collections;
 use module_09::using_traits_and_generics;
+use module_09::using_traits_and_generics_v2;
 
 fn main() {
     // Module 02 - Getting Started with Rust
@@ -58,5 +59,6 @@ fn main() {
     // understanding_basic_collections::demo_using_iterators();
 
     // Module 09 - Using Traits and Generics
-    using_traits_and_generics::introduction_to_traits();
+    // using_traits_and_generics::introduction_to_traits();
+    using_traits_and_generics_v2::demo_using_traits();
 }
