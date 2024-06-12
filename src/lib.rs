@@ -19,7 +19,7 @@ const MY_IMPORTANT_NUMBER: i32 = 42;
 /// # Examples
 ///
 /// ```
-/// use rust_syntax::add_constant;
+/// use wbc::add_constant;
 /// let calculation = add_constant(10);
 /// assert_eq!(calculation, 52);
 /// ```
