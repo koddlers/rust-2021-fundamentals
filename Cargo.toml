@@ -11,7 +11,12 @@ name = "wbc"
 path = "src/lib_module.rs"
 
 [[bin]]
-name = "test"
+name = "rust-2021-fundamentals"
 path = "src/main.rs"
 
-[dependencies]
+[dependencies.rusqlite]
+version = "0.31.0"
+features = ["bundled"]
+
+[dev-dependencies]
+tempdir = "0.3.7"
