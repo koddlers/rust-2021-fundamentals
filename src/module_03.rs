@@ -1,6 +1,6 @@
 pub mod rust_syntax_and_data_types {
     use std::io::stdin;
-    // use rust_syntax::add_constant;
+    use wbc::add_constant;
 
     pub fn demo_rust_syntax() {
         let mut number_str = String::new();
@@ -9,8 +9,8 @@ pub mod rust_syntax_and_data_types {
         stdin().read_line(&mut number_str).unwrap();
 
         // Parse our string as number after trimming off the extra characters
-        // let number: i32 = number_str.trim().parse().unwrap();
-        // println!("Calculation: {}", add_constant(number));
+        let number: i32 = number_str.trim().parse().unwrap();
+        println!("Calculation: {}", add_constant(number));
     }
 
     pub fn primitive_data_types_in_rust() {

@@ -1,4 +1,8 @@
-#![crate_name = "rust_syntax"]
+// #![crate_name = "rust_syntax"]
+
+// The WBC - Wired Brain Coffee top-level exposed submodules
+pub mod coffee;
+pub mod tea;
 
 /**
  * Module 3 Exercise File - Rust Syntax Demo
