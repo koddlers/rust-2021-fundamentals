@@ -10,4 +10,8 @@ edition = "2021"
 name = "wbc"
 path = "src/lib_module.rs"
 
+[[bin]]
+name = "test"
+path = "src/main.rs"
+
 [dependencies]
