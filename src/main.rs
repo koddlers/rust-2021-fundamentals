@@ -22,6 +22,7 @@ use module_09::using_traits_and_generics_v2;
 use module_09::using_traits_and_generics_v3;
 use module_09::using_traits_and_generics_oop;
 use module_10::structuring_rust_code;
+use module_10::structuring_rust_code_v2;
 
 fn main() {
     // Module 02 - Getting Started with Rust
@@ -69,5 +70,6 @@ fn main() {
     // module_09::oop_in_rust();
 
     // Module 10 - Structuring Rust Code
-    structuring_rust_code::modules();
+    // structuring_rust_code::modules();
+    structuring_rust_code_v2::demo_third_party_dependencies();
 }
