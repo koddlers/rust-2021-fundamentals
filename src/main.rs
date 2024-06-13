@@ -9,6 +9,7 @@ mod module_07;
 mod module_08;
 mod module_09;
 mod module_10;
+mod module_11;
 
 use module_02::getting_started_with_rust;
 use module_03::rust_syntax_and_data_types;
@@ -23,6 +24,7 @@ use module_09::using_traits_and_generics_v3;
 use module_09::using_traits_and_generics_oop;
 use module_10::structuring_rust_code;
 use module_10::structuring_rust_code_v2;
+use module_11::file_io;
 
 fn main() {
     // Module 02 - Getting Started with Rust
@@ -71,5 +73,9 @@ fn main() {
 
     // Module 10 - Structuring Rust Code
     // structuring_rust_code::modules();
-    structuring_rust_code_v2::demo_third_party_dependencies();
+    // structuring_rust_code_v2::demo_third_party_dependencies();
+
+    // Module 11 - File IO
+    // file_io::introduction_to_file_io();
+    file_io::demo_file_io();
 }
