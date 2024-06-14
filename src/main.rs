@@ -85,5 +85,6 @@ fn main() {
     // concurrency_and_rust::using_threads();
     // concurrency_and_rust::message_passing_using_channels();
     // concurrency_and_rust::shared_state_concurrency();
-    concurrency_and_rust::demo_threads_and_channels();
+    // concurrency_and_rust::demo_threads_and_channels();
+    concurrency_and_rust::demo_using_the_sync_and_send_traits();
 }

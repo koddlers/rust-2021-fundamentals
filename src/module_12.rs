@@ -148,4 +148,72 @@ pub mod concurrency_and_rust {
 
         println!("Final message: {}", message.lock().unwrap());
     }
+
+    // This struct implicitly implements "Send" because the i32 and String type is Send
+    // This struct also implicitly implements "Sync" for the same reason.
+    #[derive(Debug)]
+    struct Kofi {
+        id: i32,
+        count: i32,
+        name: String,
+    }
+
+    pub fn demo_using_the_sync_and_send_traits() {
+        // Message passing between threads using channels
+        let (tx, rx) = mpsc::channel();
+
+        // Not capturing the thread handle just causes these threads to kick off - main thread
+        // doesn't have to wait for them to finish
+        thread::spawn(move || {
+            for id in 0..20 {
+                let kofi = Kofi {
+                    id: id + 1,
+                    count: 50 + id,
+                    name: String::from("Drip ".to_owned() + &(id + 1).to_string()),
+                };
+                // We can send coffees here because each field within Coffee is Send
+                // Send let's us transfer ownership between threads
+                tx.send(kofi).unwrap();
+                thread::sleep(Duration::from_millis(500));
+            }
+        });
+
+        let rx = thread::spawn(move || {
+            for _ in 0..20 {
+                let kofi = rx.recv().unwrap();
+                println!("Received Kofi: {:?}", kofi);
+                thread::sleep(Duration::from_millis(750));
+            }
+        });
+        rx.join().unwrap();
+
+        // Kofi, like Arc implements Sync and can safely be given access from multiple threads
+        let drip_kofi = Kofi { id: 0, count: 20, name: String::from("Drip Kofi") };
+        let kofi = Arc::new(Mutex::from(drip_kofi));
+
+        let mut thread_handles: Vec<JoinHandle<()>> = vec![];
+        for _ in 0..5 {
+            let kofi = Arc::clone(&kofi);
+
+            let current_handle = thread::spawn(move || {
+                let mut kofi = kofi.lock().unwrap();
+
+                kofi.count += 5;
+                println!("Kofi count after thread altered it: {}", kofi.count);
+            });
+            thread_handles.push(current_handle);
+        }
+
+        // Wait for all threads to finish mutating our shared-state
+        for handle in thread_handles {
+            handle.join().unwrap();
+        }
+
+        println!("Final count: {}", kofi.lock().unwrap().count);
+
+        // Final Note:
+        // You *can* implement Sync and Send traits manually but this is UNSAFE
+        // You don't have to derive these directly since these traits are automatically
+        // implemented when all sub-types implement them.
+    }
 }
