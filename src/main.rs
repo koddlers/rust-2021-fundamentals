@@ -82,5 +82,6 @@ fn main() {
     // file_io::demo_file_io();
 
     // Module 12 - Concurrency and Rust
-    concurrency_and_rust::using_threads();
+    // concurrency_and_rust::using_threads();
+    concurrency_and_rust::message_passing_using_channels();
 }

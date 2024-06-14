@@ -1,4 +1,5 @@
 pub mod concurrency_and_rust {
+    use std::sync::mpsc;
     use std::thread;
     use std::time::Duration;
 
@@ -28,5 +29,18 @@ pub mod concurrency_and_rust {
             println!("This thread now owns this string: {}", my_str);
         });
         handle.join().unwrap();
+    }
+
+    pub fn message_passing_using_channels() {
+        // MPSC: Multiple Producers, Single Consumer
+        let (tx, rx) = mpsc::channel();
+
+        thread::spawn(move || {
+            let my_str = String::from("Hello from other thread");
+            tx.send(my_str).unwrap();
+        });
+
+        let received_msg = rx.recv().unwrap();
+        println!("Got this message from a different thread: {}", received_msg);
     }
 }
