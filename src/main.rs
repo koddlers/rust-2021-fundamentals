@@ -10,6 +10,7 @@ mod module_08;
 mod module_09;
 mod module_10;
 mod module_11;
+mod module_12;
 
 use module_02::getting_started_with_rust;
 use module_03::rust_syntax_and_data_types;
@@ -25,6 +26,7 @@ use module_09::using_traits_and_generics_oop;
 use module_10::structuring_rust_code;
 use module_10::structuring_rust_code_v2;
 use module_11::file_io;
+use module_12::concurrency_and_rust;
 
 fn main() {
     // Module 02 - Getting Started with Rust
@@ -77,5 +79,8 @@ fn main() {
 
     // Module 11 - File IO
     // file_io::introduction_to_file_io();
-    file_io::demo_file_io();
+    // file_io::demo_file_io();
+
+    // Module 12 - Concurrency and Rust
+    concurrency_and_rust::using_threads();
 }
