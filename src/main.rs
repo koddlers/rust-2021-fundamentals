@@ -83,5 +83,6 @@ fn main() {
 
     // Module 12 - Concurrency and Rust
     // concurrency_and_rust::using_threads();
-    concurrency_and_rust::message_passing_using_channels();
+    // concurrency_and_rust::message_passing_using_channels();
+    concurrency_and_rust::shared_state_concurrency();
 }

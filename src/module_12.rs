@@ -1,5 +1,5 @@
 pub mod concurrency_and_rust {
-    use std::sync::mpsc;
+    use std::sync::{mpsc, Mutex};
     use std::thread;
     use std::time::Duration;
 
@@ -42,5 +42,16 @@ pub mod concurrency_and_rust {
 
         let received_msg = rx.recv().unwrap();
         println!("Got this message from a different thread: {}", received_msg);
+    }
+
+    pub fn shared_state_concurrency() {
+        let my_mutex = Mutex::new(42);
+
+        {
+            let mut custom_data_ref = my_mutex.lock().unwrap();
+            *custom_data_ref = 12;
+        }
+
+        // the lock is released automatically when the mutex goes out of scope
     }
 }
