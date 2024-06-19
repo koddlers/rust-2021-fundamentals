@@ -1,5 +1,3 @@
-use crate::module_09::using_traits_and_generics_oop::{Brew, Roast, TempCategory};
-
 pub mod using_traits_and_generics {
     use std::collections::BTreeSet;
 
@@ -193,50 +191,48 @@ pub mod using_traits_and_generics_v3 {
         println!("my_other_coffee: {:?}", my_other_coffee);
     }
 
-    // pub trait Rate {
-    //     fn calc_rating(&self) -> i32;
-    // }
-    //
-    // // TODO: fix this function
-    // fn best_rating<'a, T: Rate>(items: Vec<T>) -> &'a T {
-    //     let mut best= &items[0];
-    //
-    //     for item in items.iter() {
-    //         if item.calc_rating() > best.calc_rating() {
-    //             best = item;
-    //         }
-    //     }
-    //
-    //     best
-    // }
-    //
-    // #[derive(Debug)]
-    // struct Item {
-    //     name: String,
-    //     rating: i32,
-    // }
-    //
-    // impl Rate for Item {
-    //     fn calc_rating(&self) -> i32 {
-    //         return self.rating / 10 * 100;
-    //     }
-    // }
-    //
-    // pub fn using_generics_v2() {
-    //     let candy = Item {
-    //         name: String::from("Candy"),
-    //         rating: 7,
-    //     };
-    //
-    //     let chocolate = Item {
-    //         name: String::from("Chocolate"),
-    //         rating: 10,
-    //     };
-    //
-    //     let items = vec![candy, chocolate];
-    //     let best_item = best_rating(items);
-    //     println!("The best Item is: {:?}", best_item);
-    // }
+    pub trait Rate {
+        fn calc_rating(&self) -> i32;
+    }
+
+    // Fixed by Google Gemini, https://g.co/gemini/share/9fffea968a6b
+    fn best_rating<T: Rate>(items: &[T]) -> &T { // Borrowing slice instead of entire vector
+        let mut best = &items[0];
+        for item in items.iter() {
+            if item.calc_rating() > best.calc_rating() {
+                best = item;
+            }
+        }
+        best
+    }
+
+    #[derive(Debug)]
+    struct Item {
+        name: String,
+        rating: i32,
+    }
+
+    impl Rate for Item {
+        fn calc_rating(&self) -> i32 {
+            return self.rating / 10 * 100;
+        }
+    }
+
+    pub fn using_generics_v2() {
+        let candy = Item {
+            name: String::from("Candy"),
+            rating: 7,
+        };
+
+        let chocolate = Item {
+            name: String::from("Chocolate"),
+            rating: 10,
+        };
+
+        let items = vec![candy, chocolate];
+        let best_item = best_rating(&items);
+        println!("The best Item is: {:?}", best_item);
+    }
 }
 
 pub mod using_traits_and_generics_oop {

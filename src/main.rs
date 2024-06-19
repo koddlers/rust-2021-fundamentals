@@ -71,6 +71,7 @@ fn main() {
     // using_traits_and_generics::introduction_to_traits();
     // using_traits_and_generics_v2::demo_using_traits();
     // using_traits_and_generics_v3::using_generics();
+    using_traits_and_generics_v3::using_generics_v2();
     // module_09::oop_in_rust();
 
     // Module 10 - Structuring Rust Code
@@ -86,5 +87,5 @@ fn main() {
     // concurrency_and_rust::message_passing_using_channels();
     // concurrency_and_rust::shared_state_concurrency();
     // concurrency_and_rust::demo_threads_and_channels();
-    concurrency_and_rust::demo_using_the_sync_and_send_traits();
+    // concurrency_and_rust::demo_using_the_sync_and_send_traits();
 }
